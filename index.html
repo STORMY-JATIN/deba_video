@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Deba 🌸</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fbeaff, #ffe4ec);
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+      color: #c71585;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 90%;
+      padding: 20px;
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      box-shadow: 0 0 50px rgba(255, 105, 180, 0.7);
+    }
+
+    .message {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      color: #ff69b4;
+      margin-bottom: 10px;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+
+    .bengali-phrases {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #ff1493;
+      height: 40px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .phrase {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      opacity: 0;
+      animation: phraseFade 10s linear infinite;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      text-shadow: 0 0 8px #ff1493;
+    }
+
+    .phrase:nth-child(1) { animation-delay: 0s; }
+    .phrase:nth-child(2) { animation-delay: 5s; }
+    .phrase:nth-child(3) { animation-delay: 10s; }
+    .phrase:nth-child(4) { animation-delay: 15s; }
+
+    @keyframes phraseFade {
+      0%, 20% { opacity: 1; transform: translateY(0); }
+      25%, 95% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    .personal {
+      font-size: 1.2rem;
+      max-width: 90%;
+      margin-bottom: 30px;
+      animation: fadeInUp 3s ease forwards;
+      opacity: 0;
+    }
+
+    .gif-heart {
+      width: 80px;
+      height: 80px;
+      background: url('https://media.giphy.com/media/l0HlNaQ6gWfllcjDO/giphy.gif') no-repeat center/cover;
+      margin: 20px auto;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .surprise-heading {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #ff1493;
+      margin: 30px 0 10px;
+      animation: heartbeat 2s infinite;
+    }
+
+    .video-box {
+      overflow: hidden;
+      border-radius: 25px;
+      box-shadow: 0 0 50px rgba(255, 105, 180, 0.7);
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+      margin-bottom: 30px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 25px;
+      pointer-events: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">Hey Cutie 🌸</div>
+
+    <div class="bengali-phrases" aria-live="polite" aria-atomic="true">
+      <div class="phrase">তুমি আমার হৃদয়ের সবচেয়ে সুন্দর অংশ 🌺</div>
+      <div class="phrase">তুমি আমার জীবনের আলো এবং অনুপ্রেরণা ✨</div>
+      <div class="phrase">প্রতিদিন তোমার জন্য এক নতুন ফুলের বাগান 🌷</div>
+      <div class="phrase">তুমি আমার হৃদয়ে চিরন্তন বসন্ত 🌹</div>
+    </div>
+
+    <div class="personal">
+      You bring beauty and warmth just like these blossoms, Deba. Keep shining and designing with that golden heart of yours! 🌷❤️
+    </div>
+
+    <div class="gif-heart" role="img" aria-label="Pumping heart animation"></div>
+
+    <div class="surprise-heading">A Surprise for You, Deba ❤️</div>
+
+    <div class="video-box" tabindex="0" role="button" aria-pressed="false" aria-label="Click to play video" onclick="togglePlay()" onkeydown="if(event.key==='Enter' || event.key===' ') togglePlay()">
+      <video id="debaVideo" preload="metadata" playsinline>
+        <source src="deba_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('debaVideo');
+    const videoBox = document.querySelector('.video-box');
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        videoBox.setAttribute('aria-pressed', 'true');
+      } else {
+        video.pause();
+        videoBox.setAttribute('aria-pressed', 'false');
+      }
+    }
+  </script>
+</body>
+</html>
